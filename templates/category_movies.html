@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 style="color: white;">{{ genre }} Movies</h1>
+        <a href="{{ url_for('categories') }}" class="btn btn-outline-light" style="border-radius: 20px;">Back to Categories</a>
+    </div>
+
+    <div class="movie-grid">
+        {% for movie in movies %}
+        <div class="movie-card">
+            {% if movie.poster %}
+            <div class="movie-poster-container">
+                <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="movie-poster">
+                <div class="rating">{{ "%.1f"|format(movie.vote_average) }}</div>
+                <div class="movie-info">
+                    <h3>{{ movie.title }}</h3>
+                    <p>{{ movie.overview[:100] }}...</p>
+                    <a href="{{ url_for('movie_details', movie_id=movie.id) }}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .movie-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem 0;
+    }
+    .movie-card {
+        position: relative;
+        height: 300px;
+    }
+    .movie-poster-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+    .movie-poster {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    .rating {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #ffd700;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        z-index: 2;
+    }
+    .movie-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+        color: white;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+    .movie-info h3 {
+        font-size: 1.2rem;
+        margin: 0 0 10px 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .movie-info p {
+        font-size: 0.9rem;
+        margin: 0 0 15px 0;
+        opacity: 0.8;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .movie-poster-container:hover .movie-info {
+        transform: translateY(0);
+    }
+    .movie-poster-container:hover .movie-poster {
+        transform: scale(1.1);
+    }
+    .btn-primary {
+        background-color: #3f4874;
+        border: none;
+        padding: 6px 16px;
+        font-size: 0.9rem;
+        border-radius: 4px;
+    }
+    .btn-primary:hover {
+        background-color: #4a5491;
+    }
+    .btn-outline-light:hover {
+        background-color: #3f4874;
+        border-color: #3f4874;
+    }
+</style>
+{% endblock %} 

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Movie Categories</h1>
+    
+    <div class="row">
+        {% for genre in genres %}
+        <div class="col-md-6 mb-4">
+            <div class="category-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3 class="category-title">{{ genre }}</h3>
+                    <a href="{{ url_for('category_movies', genre=genre) }}" class="btn btn-primary">View All</a>
+                </div>
+                
+                <div class="movie-grid">
+                    {% if genre_movies[genre] %}
+                        {% for movie in genre_movies[genre][:4] %}
+                        <div class="movie-card">
+                            <div class="movie-poster-container">
+                                <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="movie-poster">
+                                <div class="rating">{{ "%.1f"|format(movie.vote_average) }}</div>
+                                <div class="movie-info">
+                                    <h3>{{ movie.title }}</h3>
+                                    <p>{{ movie.overview[:100] }}...</p>
+                                    <a href="{{ url_for('movie_details', movie_id=movie.id) }}" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted">No movies found</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} 

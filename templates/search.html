@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Search Movies</h1>
+    
+    <form action="{{ url_for('search') }}" method="get" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search for movies..." value="{{ query if query }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+</div>
+{% endblock %} 

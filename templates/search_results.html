@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="mb-4">
+        <form action="{{ url_for('search') }}" method="get" class="d-flex gap-2">
+            <input type="text" name="q" value="{{ query }}" class="form-control search-input" placeholder="Search for movies...">
+            <button type="submit" class="btn btn-primary search-btn">Search</button>
+        </form>
+    </div>
+
+    {% if results %}
+    <div class="mb-5">
+        <h2 class="mb-4">Search Results for "{{ query }}"</h2>
+        <div class="movie-grid">
+            {% for movie in results %}
+            <div class="movie-card">
+                <div class="movie-poster-container">
+                    <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="movie-poster">
+                    <div class="rating">{{ "%.1f"|format(movie.vote_average) }}</div>
+                    <div class="movie-info">
+                        <h3>{{ movie.title }}</h3>
+                        <p>{{ movie.overview[:100] }}...</p>
+                        <a href="{{ url_for('movie_details', movie_id=movie.id) }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if recommendations %}
+    <div>
+        <h2 class="mb-4">You Might Also Like</h2>
+        <div class="movie-grid">
+            {% for movie in recommendations %}
+            <div class="movie-card">
+                <div class="movie-poster-container">
+                    <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="movie-poster">
+                    <div class="rating">{{ "%.1f"|format(movie.vote_average) }}</div>
+                    <div class="movie-info">
+                        <h3>{{ movie.title }}</h3>
+                        <p>{{ movie.overview[:100] }}...</p>
+                        <a href="{{ url_for('movie_details', movie_id=movie.id) }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if not results and query %}
+    <div class="no-results">
+        <h3>No movies found for "{{ query }}"</h3>
+        <p>Try searching with different keywords</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %} 

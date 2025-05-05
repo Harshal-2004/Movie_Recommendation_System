@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="overlay"></div>
+    <div class="content">
+        <h1 class="main-title">Movie Center</h1>
+        <p class="subtitle">Discover your next favorite movie</p>
+        
+        <div class="search-box">
+            <form action="{{ url_for('search') }}" method="get" class="d-flex gap-3">
+                <input type="text" name="q" class="form-control search-input" placeholder="Search for movies...">
+                <button type="submit" class="btn btn-primary search-btn">Search</button>
+            </form>
+        </div>
+
+        <div class="features mt-5">
+            <a href="{{ url_for('categories') }}" class="feature-card">
+                <i class="fas fa-film"></i>
+                <h3>Browse Categories</h3>
+                <p>Explore movies by genre</p>
+            </a>
+            <a href="{{ url_for('search') }}" class="feature-card">
+                <i class="fas fa-search"></i>
+                <h3>Search Movies</h3>
+                <p>Find specific movies</p>
+            </a>
+            <!-- <div class="feature-card">
+                <i class="fas fa-star"></i>
+                <h3>Get Recommendations</h3>
+                <p>Discover similar movies</p>
+            </div> -->
+        </div>
+    </div>
+</div>
+{% endblock %}
