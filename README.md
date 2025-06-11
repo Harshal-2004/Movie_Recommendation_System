@@ -126,5 +126,3 @@ This project is licensed under the MIT License.
 **Harshal Shirole**  
 Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/harshal-shirole-742824278/) or check out my other projects on [GitHub](https://github.com/Harshal-2004).
 
-
-Let me know if you want help creating a GIF preview or want to deploy this online.
