@@ -5,16 +5,19 @@ A web-based movie recommendation application that helps users discover similar f
 ---
 
 ## 📸 Demo
+1] Dashboard :
+![App Screenshot](static/images/Dashboard.jpeg)
 
-![App Screenshot](static/images/Recommendation.jpg)
+2] Categories :
+![App Screenshot](static/images/categories.jpeg)
 
-![App Screenshot](static/images/Dashboard.jpg)
 
+3] Inside_Categories :
+![App Screenshot](static/images/inside_categories.jpeg)
 
-![App Screenshot](static/images/inside_categories.jpg)
-![App Screenshot](static/images/categories.jpg)
+4] Recommendation for particular movie  :
+![App Screenshot](static/images/Recommendation.jpeg)
 
-> Replace the above image with a screenshot or GIF of your actual app interface.
 
 ---
 
