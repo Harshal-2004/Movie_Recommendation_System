@@ -11,7 +11,6 @@ A web-based movie recommendation application that helps users discover similar f
 2] Categories :
 ![App Screenshot](static/images/categories.jpeg)
 
-
 3] Inside_Categories :
 ![App Screenshot](static/images/inside_categories.jpeg)
 
