@@ -12,9 +12,11 @@ A web-based movie recommendation application that helps users discover similar f
 ![App Screenshot](static/images/categories.jpeg)
 
 3] Inside_Categories :
+
 ![App Screenshot](static/images/inside_categories.jpeg)
 
 4] Recommendation for particular movie  :
+
 ![App Screenshot](static/images/Recommendation.jpeg)
 
 
