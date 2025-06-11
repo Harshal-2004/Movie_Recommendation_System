@@ -6,13 +6,13 @@ A web-based movie recommendation application that helps users discover similar f
 
 ## 📸 Demo
 
-![App Screenshot](static/images/movie-banner.jpg)
+![App Screenshot](static/images/Recommendation.jpg)
 
-![App Screenshot](static/images/movie-banner.jpg)
+![App Screenshot](static/images/Dashboard.jpg)
 
 
-![App Screenshot](static/images/movie-banner.jpg)
-![App Screenshot](static/images/movie-banner.jpg)
+![App Screenshot](static/images/inside_categories.jpg)
+![App Screenshot](static/images/categories.jpg)
 
 > Replace the above image with a screenshot or GIF of your actual app interface.
 
